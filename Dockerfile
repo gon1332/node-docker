@@ -1,12 +1,18 @@
-FROM node:12.18.1
+FROM node:12.8
 
+# Create app directory
 WORKDIR /app
 
-COPY package.json package.json
-COPY package-lock.json package-lock.json
+# Install app dependencies
+COPY package*.json ./
 
 RUN npm install
 
+# Bundle app source
 COPY . .
 
-CMD [ "node", "server.js" ]
+# Set environmental variables
+ENV USER=docker
+
+EXPOSE 8080
+CMD node server.js --host='0.0.0.0' --port=8080
