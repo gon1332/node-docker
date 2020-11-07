@@ -39,6 +39,7 @@ jobs:
       # Checkout the code base #
       ##########################
       - name: Checkout Code
+        id: checkout-code
         uses: actions/checkout@v2
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
@@ -50,6 +51,8 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter@v3
         env:
-          VALIDATE_ALL_CODEBASE: true
+          # LINTER_RULES_PATH: ${{ github.workspace }}
+          VALIDATE_JAVASCRIPT_ES: true
+          # JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

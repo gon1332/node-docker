@@ -1,6 +1,8 @@
 Hello Node.js and Docker
 ========================
 
+[![GitHub Super-Linter](https://github.com/gon1332/node-docker/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 Project depedencies
 -------------------
  * [Docker](https://www.docker.com/)
